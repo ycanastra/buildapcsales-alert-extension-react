@@ -2,6 +2,7 @@ const React = require('react')
 const ReactDOM = require('react-dom')
 
 const Input = require('./Input.jsx')
+const KeywordList = require('./KeywordList.jsx')
 
 var App = React.createClass({
   render: function () {
@@ -13,6 +14,7 @@ var App = React.createClass({
     return (
       <div style={styles} className='container'>
         <Input />
+        <KeywordList />
       </div>
     )
   }
