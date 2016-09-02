@@ -5,6 +5,11 @@ const Input = require('./Input.jsx')
 const KeywordList = require('./KeywordList.jsx')
 
 var App = React.createClass({
+  getInitialState: function () {
+    return {
+      keywords: ['keyword1', 'keyword2', 'keyword3']
+    }
+  },
   render: function () {
     var styles = {
       padding: '0px',
@@ -14,7 +19,7 @@ var App = React.createClass({
     return (
       <div style={styles} className='container'>
         <Input />
-        <KeywordList />
+        <KeywordList keywords={this.state.keywords} />
       </div>
     )
   }
