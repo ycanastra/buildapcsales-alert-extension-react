@@ -3,6 +3,7 @@ const ReactDOM = require('react-dom')
 
 const Input = require('./Input.jsx')
 const KeywordList = require('./KeywordList.jsx')
+const Footer = require('./Footer.jsx')
 
 var App = React.createClass({
   getInitialState: function () {
@@ -41,6 +42,7 @@ var App = React.createClass({
       <div style={this.styles} className='container'>
         <Input addKeyword={this.addKeyword} />
         <KeywordList keywords={this.state.keywords} removeKeyword={this.removeKeyword} />
+        <Footer />
       </div>
     )
   }
