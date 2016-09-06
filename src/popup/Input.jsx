@@ -1,20 +1,36 @@
 const React = require('react')
 
 const FormControl = require('react-bootstrap').FormControl
+const FormGroup = require('react-bootstrap').FormGroup
 
 var Input = React.createClass({
   propTypes: {
     addKeyword: React.PropTypes.func.isRequired
   },
   styles: {
-    position: 'absolute',
-    top: '0px',
-    width: '100%',
-    margin: '0px',
-    padding: '10px',
-    height: '45px',
-    color: 'black',
-    fontSize: '20px'
+    div: {
+      position: 'fixed',
+      top: '0px',
+      width: '100%',
+      margin: '0px',
+      padding: '0px'
+    },
+    alert: {
+      height: '40px'
+    },
+    formGroup: {
+      height: '45px',
+      margin: '0px'
+    },
+    formControl: {
+      top: '0px',
+      width: '100%',
+      margin: '0px',
+      padding: '10px',
+      height: '45px',
+      color: 'black',
+      fontSize: '20px'
+    }
   },
   getInitialState: function () {
     return {
@@ -29,10 +45,15 @@ var Input = React.createClass({
   },
   render: function () {
     return (
-      <FormControl
-        style={this.styles}
-        onKeyPress={this.handleKeyPress}
-        placeholder='Add a keyword' />
+      <div style={this.styles.div}>
+        <FormGroup style={this.styles.formGroup} bsSize='large'>
+          <FormControl
+            style={this.styles.formControl}
+            type='text'
+            onKeyPress={this.handleKeyPress}
+            placeholder='Add a keyword' />
+        </FormGroup>
+      </div>
     )
   }
 })
