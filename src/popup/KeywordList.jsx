@@ -32,7 +32,9 @@ var KeywordListItem = React.createClass({
     fontSize: '20px',
     width: '100%',
     height: '35px',
-    fontWeight: 'normal'
+    fontWeight: 'normal',
+    margin: '0px',
+    borderRadius: '3px'
   },
   getInitialState: function () {
     return {
