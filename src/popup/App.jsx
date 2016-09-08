@@ -35,11 +35,12 @@ var App = React.createClass({
     padding: '0px',
     margin: '0px',
     width: '350px',
-    maxHeight: '600px'
+    maxHeight: '600px',
+    overflow: 'hidden'
   },
   render: function () {
     return (
-      <div style={this.styles} className='container'>
+      <div style={this.styles}>
         <Input addKeyword={this.addKeyword} />
         <KeywordList keywords={this.state.keywords} removeKeyword={this.removeKeyword} />
         <Footer />

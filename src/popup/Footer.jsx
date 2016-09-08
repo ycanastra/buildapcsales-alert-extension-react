@@ -3,14 +3,15 @@ const React = require('react')
 var Footer = React.createClass({
   styles: {
     div: {
-      position: 'fixed',
+      position: 'relative',
       height: '20px',
       backgroundColor: 'white',
       textAlign: 'center',
       margin: '0px',
       padding: '0px',
       bottom: '0px',
-      width: '100%'
+      width: '100%',
+      overflow: 'hidden'
     },
     a: {
       color: 'black',

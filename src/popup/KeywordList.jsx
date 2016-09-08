@@ -9,10 +9,10 @@ var KeywordList = React.createClass({
   },
   styles: {
     position: 'relative',
-    marginTop: '45px',
-    marginBottom: '20px',
+    // marginTop: '45px',
+    // marginBottom: '20px',
     overflow: 'auto',
-    maxHeight: 'calc(600px - 45px - 20px)'
+    maxHeight: '500px'
   },
   render: function () {
     return (
@@ -81,8 +81,7 @@ var KeywordListItem = React.createClass({
     })
   },
   removeKeyword: function (event) {
-    var keywordToRemove = event.target.parentNode.previousElementSibling.innerHTML
-    this.props.removeKeyword(keywordToRemove)
+    this.props.removeKeyword(this.props.keyword)
   },
   render: function () {
     this.styles.div.backgroundColor = (this.state.hoverKeyword) ? 'rgb(234, 234, 234)' : 'white'
@@ -103,7 +102,6 @@ var KeywordListItem = React.createClass({
               onMouseOut={this.removeButtonMouseOut}
               onClick={this.removeKeyword}
               style={this.styles.glyphicon}
-              bsSize='large'
               glyph='remove' />
           </div>
         </span>
