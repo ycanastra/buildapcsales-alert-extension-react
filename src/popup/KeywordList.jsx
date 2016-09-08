@@ -50,43 +50,58 @@ var KeywordListItem = React.createClass({
     },
     glyphicon: {
       marginRight: '10px',
-      cursor: 'pointer'
+      cursor: 'pointer',
+      color: 'red'
     }
   },
   getInitialState: function () {
     return {
-      hover: false
+      hoverKeyword: false,
+      hoverRemoveButton: false
     }
   },
-  mouseOver: function () {
+  keywordMouseOver: function () {
     this.setState({
-      hover: true
+      hoverKeyword: true
     })
   },
-  mouseOut: function () {
+  keywordMouseOut: function () {
     this.setState({
-      hover: false
+      hoverKeyword: false
+    })
+  },
+  removeButtonMouseOver: function () {
+    this.setState({
+      hoverRemoveButton: true
+    })
+  },
+  removeButtonMouseOut: function () {
+    this.setState({
+      hoverRemoveButton: false
     })
   },
   removeKeyword: function (event) {
-    console.log(event.target.innerHTML)
-    this.props.removeKeyword(event.target.innerHTML)
+    var keywordToRemove = event.target.parentNode.previousElementSibling.innerHTML
+    this.props.removeKeyword(keywordToRemove)
   },
   render: function () {
-    this.styles.div.backgroundColor = (this.state.hover) ? 'gray' : 'white'
+    this.styles.div.backgroundColor = (this.state.hoverKeyword) ? 'gray' : 'white'
+    this.styles.glyphicon.opacity = (this.state.hoverRemoveButton) ? '1' : '0.2'
     return (
       <div
         style={this.styles.div}
-        onMouseOver={this.mouseOver}
-        onMouseOut={this.mouseOut}>
+        onMouseOver={this.keywordMouseOver}
+        onMouseOut={this.keywordMouseOut}>
         <span>
           <label
-            style={this.styles.label}
-            onClick={this.removeKeyword}>
+            style={this.styles.label}>
             {this.props.keyword}
           </label>
           <div style={this.styles.glyphiconWrapper}>
             <Glyphicon
+              onMouseOver={this.removeButtonMouseOver}
+              onMouseOut={this.removeButtonMouseOut}
+              onClick={this.removeKeyword}
               style={this.styles.glyphicon}
               bsSize='large'
               glyph='remove' />
