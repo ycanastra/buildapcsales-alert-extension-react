@@ -29,13 +29,19 @@ var Input = React.createClass({
       padding: '10px',
       height: '45px',
       color: 'black',
-      fontSize: '20px'
+      fontSize: '20px',
+      fontStyle: 'normal'
     }
   },
   getInitialState: function () {
     return {
       inputValue: ''
     }
+  },
+  handleChange: function (event) {
+    this.setState({
+      inputValue: event.target.value
+    })
   },
   handleKeyPress: function (event) {
     if (event.key === 'Enter') {
@@ -44,12 +50,14 @@ var Input = React.createClass({
     }
   },
   render: function () {
+    this.styles.formControl.fontStyle = (this.state.inputValue.length > 0) ? 'normal' : 'italic'
     return (
       <div style={this.styles.div}>
         <FormGroup style={this.styles.formGroup} bsSize='large'>
           <FormControl
             style={this.styles.formControl}
             type='text'
+            onChange={this.handleChange}
             onKeyPress={this.handleKeyPress}
             placeholder='Add a keyword' />
         </FormGroup>
