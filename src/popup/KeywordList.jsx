@@ -85,7 +85,7 @@ var KeywordListItem = React.createClass({
     this.props.removeKeyword(keywordToRemove)
   },
   render: function () {
-    this.styles.div.backgroundColor = (this.state.hoverKeyword) ? 'gray' : 'white'
+    this.styles.div.backgroundColor = (this.state.hoverKeyword) ? 'rgb(234, 234, 234)' : 'white'
     this.styles.glyphicon.opacity = (this.state.hoverRemoveButton) ? '1' : '0.2'
     return (
       <div
